@@ -1,0 +1,131 @@
+@import url("../../shared/global.css");
+
+#header-container {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 2;
+}
+
+.first_section {
+    padding-top: 103px;
+    padding-bottom: 116px;
+    background-color: #F2F0F1;
+    background-image: url("../../public/images/backimg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.first_section h1 {
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-size: 64px;
+    font-weight: bold;
+    width: 574px;
+    max-width: 100%;
+    line-height: 64px;
+}
+
+.first_section p {
+    font-size: 16px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.6);
+    width: 545px;
+    max-width: 100%;
+    margin-bottom: 32px;
+}
+
+.first_section button {
+    padding: 15px 67.5px;
+    color: white;
+    font-size: 16px;
+    border-radius: 62px;
+    background-color: #000;
+    border: none;
+    transition: 0.3s;
+    margin-bottom: 48px;
+}
+.first_section button:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.data-counts {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.line {
+    width: 1px;
+    height: 60.8px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.brands-section {
+    background-color: #000;
+    color: white;
+    padding: 44px 0;
+}
+
+.brands {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.brands h2 {
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.newarrivals-section {
+    padding-top: 72px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.newarrivals-section h2,
+.topselling-section h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#newproducts,
+#topsellings {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 20px
+}
+#newproducts>*:nth-child(n+5),
+#topsellings>*:nth-child(n+5) {
+    display: none;
+}
+
+#viewall-btn_newprod,
+#viewall-btn_topsell {
+    padding: 15px 80px;
+    background-color: #fff;
+    border-radius: 62px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #000;
+    display: block;
+    margin: auto;
+    margin-top: 36px;
+    transition: 0.3s;
+}
+#viewall-btn_newprod:hover,
+#viewall-btn_topsell:hover{
+    background-color: #F0F0F0;
+}
+
+.topselling-section {
+    padding-top: 64px;
+    padding-bottom: 80px;
+}
