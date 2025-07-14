@@ -10,19 +10,27 @@ fetch('../../shared/header.html')
 let response_prod = [];
 getProducts().then((products) => {
     response_prod = products;
-    let newproducts = response_prod;
-    newproducts = newproducts.sort((a, b) => new Date(b.meta.createdAt) - new Date(a.meta.createdAt));
+    let newproducts = [...response_prod].sort((a, b) => new Date(b.meta.createdAt) - new Date(a.meta.createdAt));
+    let topselling = [...response_prod].sort((a, b) => b.rating - a.rating);
+    let happycustomers = [...response_prod].filter(p => averageReviewRating(p) > 0).sort((a, b) => averageReviewRating(b) - averageReviewRating(a));
+
     const newproducts_section = document.getElementById("newproducts");
     newproducts_section.innerHTML = CreateItems(newproducts);
 
-    let topselling = response_prod;
-    topselling = topselling.sort((a, b) => b.rating - a.rating);
     const topselling_section = document.getElementById("topsellings");
     topselling_section.innerHTML = CreateItems(topselling);
+
+    const customers_slider = document.getElementById("customers-slider");
+    customers_slider.innerHTML = CreateSlider(happycustomers);
 
     addBasket();
 })
 
+function averageReviewRating(product) {
+    if (!product.reviews || product.reviews.length === 0) return 0;
+    let sum = product.reviews.reduce((acc, i) => acc + i.rating, 0);
+    return (sum / product.reviews.length) > 2 ? sum / product.reviews.length : 0;
+}
 
 function renderStars(rating) {
     const fullStar = '⭐';
@@ -97,9 +105,18 @@ function addBasket() {
     const basket_btns = document.querySelectorAll("#basket");
     let products = JSON.parse(localStorage.getItem("products")) || [];
     const basket_count = document.getElementById("basket-count");
+    basket_count.innerText = products.length;
+
     basket_btns.forEach(btn => {
+        const id = parseInt(btn.dataset.id);
+        if (products.includes(id)) {
+            btn.innerHTML = `<img src="../../public/images/shopping-cart.png" alt="">`;
+        } else {
+            btn.innerHTML = `<img src="../../public/images/basketicon.png" alt="">`;
+        }
         btn.addEventListener("click", function () {
-            const id = parseInt(btn.dataset.id);
+
+
             if (!products.includes(id)) {
                 btn.innerHTML = "";
                 setTimeout(() => {
@@ -112,7 +129,6 @@ function addBasket() {
                     btn.innerHTML = `<img src="../../public/images/basketicon.png" alt="">`;
                 }, 500)
                 products = products.filter(pid => pid !== id);
-               
             }
             localStorage.setItem("products", JSON.stringify(products));
             basket_count.innerText = products.length;
@@ -120,4 +136,14 @@ function addBasket() {
     })
 }
 
-
+function CreateSlider(array) {
+    return array.map(el =>
+        (el.reviews || []).map(item =>
+            `<div class="review">
+            <span>${item.rating}</span>
+        <h3>${item.reviewerName}</h3>
+        <p>${item.comment}</p>
+    </div>`
+        ).join("")
+    ).join("")
+}

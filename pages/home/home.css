@@ -87,7 +87,7 @@
 }
 
 .newarrivals-section h2,
-.topselling-section h2 {
+.topselling-section h2{
     font-size: 48px;
     font-weight: bold;
     text-transform: uppercase;
@@ -128,4 +128,33 @@
 .topselling-section {
     padding-top: 64px;
     padding-bottom: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.happycustomers-section{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+.happycustomers-section h2{
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#customers-slider{
+    margin-top: 40px;
+}
+.customersh2_arrows{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.arrows{
+    display: flex;
+    gap:20px;
+}
+#left-arrow, #right-arrow{
+    cursor: pointer;
+}
+#left-arrow img,#right-arrow img{
+width: 100%;
 }
