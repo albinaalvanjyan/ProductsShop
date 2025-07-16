@@ -184,10 +184,10 @@ document.addEventListener("click", function (e) {
     if (e.target.closest(".basket")) return;
     if (prodItem) {
         const id = prodItem.dataset.id;
-        window.location.href = `../productdetail/product.html?id=${id}`;
+        window.location.href = `/pages/productdetail/product.html?id=${id}`;
     }
 });
 const basketheader = document.getElementById("header-basket");
 basketheader.addEventListener("click", () => {
-    window.location.href = `../cart/cart.html`;
+    window.location.href = `/pages/cart/cart.html`;
 })
