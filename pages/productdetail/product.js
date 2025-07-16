@@ -1,12 +1,12 @@
-import { getProducts } from "/public/shared/script.js";
+import { getProducts } from "/shared/script.js";
 
-fetch('/public/shared/header.html')
+fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('/public/shared/footer.html')
+fetch('/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -36,7 +36,7 @@ function CreateProduct() {
         <div class="prices"> <span class="newprice">$${newprice(prod)}</span> <span
                 class="old-price">$${prod.price}</span> <span class="discount">${prod.discountPercentage}%</span></div>
         <p>${prod.description}</p>
-<div class="btns"><button id="counting-btn"><img src="../../public/images/minus.png" alt="" id="minus"><span id="counter">1</span><img src="../../public/images/plus.png" alt="" id="plus"></button> <button id="addtocart-btn">Add to Cart</button></div>
+<div class="btns"><button id="counting-btn"><img src="../../images/minus.png" alt="" id="minus"><span id="counter">1</span><img src="../../images/plus.png" alt="" id="plus"></button> <button id="addtocart-btn">Add to Cart</button></div>
     </div>
 </div>`;
     document.querySelectorAll(".other-images_items").forEach((el, i) => {

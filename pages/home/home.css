@@ -2,7 +2,7 @@
     padding-top: 103px;
     padding-bottom: 116px;
     background-color: #F2F0F1;
-    background-image: url("/public/images/backimg.png");
+    background-image: url("/images/backimg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -37,7 +37,8 @@
     transition: 0.3s;
     margin-bottom: 48px;
 }
-.first_section button:hover{
+
+.first_section button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -78,7 +79,7 @@
 }
 
 .newarrivals-section h2,
-.topselling-section h2{
+.topselling-section h2 {
     font-size: 48px;
     font-weight: bold;
     text-transform: uppercase;
@@ -93,6 +94,7 @@
     align-items: center;
     gap: 20px
 }
+
 #newproducts>*:nth-child(n+5),
 #topsellings>*:nth-child(n+5) {
     display: none;
@@ -111,8 +113,9 @@
     margin-top: 36px;
     transition: 0.3s;
 }
+
 #viewall-btn_newprod:hover,
-#viewall-btn_topsell:hover{
+#viewall-btn_topsell:hover {
     background-color: #F0F0F0;
 }
 
@@ -121,55 +124,67 @@
     padding-bottom: 80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.happycustomers-section{
+
+.happycustomers-section {
     padding-top: 80px;
     padding-bottom: 170px;
     position: relative;
 }
-.happycustomers-section h2{
+
+.happycustomers-section h2 {
     font-size: 48px;
     font-weight: bold;
     text-transform: uppercase;
 }
-#customers-slider{
+
+#customers-slider {
     margin-top: 40px;
 }
-.customersh2_arrows{
+
+.customersh2_arrows {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.arrows{
+
+.arrows {
     display: flex;
-    gap:20px;
-}
-#left-arrow, #right-arrow{
-    cursor: pointer;
-}
-#left-arrow img,#right-arrow img{
-width: 100%;
+    gap: 20px;
 }
 
-#slider-carousel{
-    width: 100%;
-    overflow:hidden;
+#left-arrow,
+#right-arrow {
+    cursor: pointer;
 }
-#customers-slider{
+
+#left-arrow img,
+#right-arrow img {
+    width: 100%;
+}
+
+#slider-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+#customers-slider {
     display: flex;
     gap: 20px;
     align-items: center;
     position: relative;
-    right:0;
+    right: 0;
     transition: right 0.5s ease;
 }
-.review{
+
+.review {
     min-width: 400px !important;
     padding: 28px 32px 50px 32px;
-    border:1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     align-self: stretch;
 }
-.review h3{
+
+.review h3 {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -178,7 +193,8 @@ width: 100%;
     margin-top: 20px;
     margin-bottom: 17px;
 }
-.review p{
+
+.review p {
     font-size: 16px;
     line-height: 22px;
     color: rgba(0, 0, 0, 0.6);

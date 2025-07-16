@@ -1,12 +1,12 @@
-import { getProducts } from "/public/shared/script.js";
+import { getProducts } from "/shared/script.js";
 
-fetch('/public/shared/header.html')
+fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('/public/shared/footer.html')
+fetch('/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -59,7 +59,7 @@ function CreateItems(array) {
     <h3>${prod.title}</h3>  
     <p>${renderStars(prod.rating)} ${Math.round(prod.rating)}/5</p> 
    <div class="prices"> <span class="newprice">$${newprice(prod)}</span> <span class="old-price">$${prod.price}</span> <span class="discount">${prod.discountPercentage}%</span></div>
-   <button class="basket" data-id="${prod.id}"><img src="../../public/images/basketicon.png" alt=""></button>
+   <button class="basket" data-id="${prod.id}"><img src="../../images/basketicon.png" alt=""></button>
    </div>`
     ).join("");
 }
@@ -115,9 +115,9 @@ function addBasket() {
     basket_btns.forEach(btn => {
         const id = parseInt(btn.dataset.id);
         if (products.includes(id)) {
-            btn.innerHTML = `<img src="../../public/images/shopping-cart.png" alt="">`;
+            btn.innerHTML = `<img src="../../images/shopping-cart.png" alt="">`;
         } else {
-            btn.innerHTML = `<img src="../../public/images/basketicon.png" alt="">`;
+            btn.innerHTML = `<img src="../../images/basketicon.png" alt="">`;
         }
         btn.addEventListener("click", function () {
 
@@ -125,13 +125,13 @@ function addBasket() {
             if (!products.includes(id)) {
                 btn.innerHTML = "";
                 setTimeout(() => {
-                    btn.innerHTML = `<img src=../../public/images/shopping-cart.png alt="">`;
+                    btn.innerHTML = `<img src=../../images/shopping-cart.png alt="">`;
                 }, 500)
                 products.push(id);
             } else {
                 btn.innerHTML = "";
                 setTimeout(() => {
-                    btn.innerHTML = `<img src="../../public/images/basketicon.png" alt="">`;
+                    btn.innerHTML = `<img src="../../images/basketicon.png" alt="">`;
                 }, 500)
                 products = products.filter(pid => pid !== id);
             }
@@ -145,7 +145,7 @@ function CreateSlider(array) {
     return array.map(el =>
         `<div class="review">
             <span>${renderStars(el.rating)}</span>
-<h3>${el.reviewerName} <img src="../../public/images/Vector (13).png" alt=""></h3>
+<h3>${el.reviewerName} <img src="../../images/Vector (13).png" alt=""></h3>
         <p>${el.comment}</p>
     </div>`
     ).join("")
@@ -187,7 +187,7 @@ document.addEventListener("click", function (e) {
         window.location.href = `../productdetail/product.html?id=${id}`;
     }
 });
-const basketheader= document.getElementById("header-basket");
-basketheader.addEventListener("click", ()=>{
+const basketheader = document.getElementById("header-basket");
+basketheader.addEventListener("click", () => {
     window.location.href = `../cart/cart.html`;
 })

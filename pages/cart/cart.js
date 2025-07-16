@@ -1,12 +1,12 @@
 import { getProducts } from "/shared/script.js";
 
-fetch('/public/shared/header.html')
+fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('/public/shared/footer.html')
+fetch('/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -61,13 +61,13 @@ function CreateCart() {
     <div>
         <div class="title-trashicon">
             <h3>${el.title}</h3>
-           <div class="trash"  data-id="${el.id}"><img src="../../public/images/Frame (6).png" alt=""></div>
+           <div class="trash"  data-id="${el.id}"><img src="/images/Frame (6).png" alt=""></div>
         </div>
         <div class="price-count"><span>$${el.newprice}</span>
             <button class="counting-btn">
-                <img src="../../public/images/minus.png" alt="-" class="minus"  data-id="${el.id}">
+                <img src="/images/minus.png" alt="-" class="minus"  data-id="${el.id}">
                 <span class="counter">${el.count}</span>
-                <img src="../../public/images/plus.png" alt="+" class="plus"  data-id="${el.id}">
+                <img src="/images/plus.png" alt="+" class="plus"  data-id="${el.id}">
             </button>
         </div>
     </div>
