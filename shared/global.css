@@ -5,6 +5,14 @@
     font-family: "Poppins";
 }
 
+#header-container {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 2;
+   
+}
+
 button {
     cursor: pointer;
 }
@@ -21,6 +29,7 @@ button {
     align-items: center;
     gap: 10px;
     padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .header h2 {
@@ -74,12 +83,26 @@ nav a {
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     align-self: stretch;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-
+.prod_items:hover {
+    background-color: #E0DDDC;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.prod_items:hover .basket{
+    background-color: #E0DDDC;
+}
 .prod-img {
     background-color: #F0EEED;
     border-radius: 20px;
     margin-bottom: 16px;
+    transition: filter 0.3s ease;
+}
+
+.prod_items:hover .prod-img {
+    filter: brightness(0.95);
 }
 
 .prod-img img {
@@ -112,7 +135,7 @@ nav a {
     font-size: 12px;
 }
 
-#basket {
+.basket {
     position: absolute;
     bottom: 30px;
     right: 20px;
@@ -120,14 +143,17 @@ nav a {
     height: 20px;
     background-color: #fff;
     border: none;
+    transition: 0.3s;
 }
 
-#basket img {
+.basket img {
     width: 100%;
 }
 
 #header-basket{
     position: relative;
+    cursor: pointer;
+
 }
 #basket-count{
     position: absolute;
@@ -143,4 +169,153 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.latestoffers-section{
+    display: flex;
+    align-items: center;
+    gap:50px;
+    justify-content: space-between;
+    padding: 36px 64px;
+    border-radius: 20px;
+    background-color: #000;
+    color: white;
+    position: absolute;
+    top:-70px;
+    left:0;
+    right: 0;
+}
+.latestoffers-section h2{
+    max-width: 551px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+.latestoffers-section form{
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+    flex:1;
+
+}
+.email-input{
+    position: relative;
+}
+.email-input img{
+    position: absolute;
+    top: 0;
+    left: 16px;
+    bottom: 0;
+    margin: auto;
+    
+}
+.email-input input{
+   width: 100%;
+    padding: 12px 16px 12px 52px;
+    background-color: #F0F0F0;
+    border: none;
+    outline: none;
+    border-radius: 62px;
+}
+.email-input input::placeholder{
+    margin-right: 16px;
+}
+.latestoffers-section form button{
+    padding: 12px 88px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 62px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.latestoffers-section form button:hover{
+    background-color: #F0F0F0;
+}
+footer{
+    padding-top: 140px;
+    padding-bottom: 88px;
+    background-color: #F0F0F0;
+    position: relative;
+}
+.footer-section{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    gap: 113px;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+.social-icons{
+    display: flex;
+    align-items: center;
+    gap:12px;
+}
+.social-icons a{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: black;
+    border : 1px solid rgba(0, 0, 0, 0.2);
+}
+.shopco-info{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 248px;
+}
+.shopco-info h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 32px;   
+}
+.shopco-info p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 22px;
+}
+.footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer-links h3{
+    font-size:16px;
+    line-height: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.footer-links a{
+    text-decoration: none;
+    font-size:16px;
+    line-height: 19px;
+   color:rgba(0, 0, 0, 0.6);
+}
+.footer-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:50px;
+    margin-top: 25px;
+}
+.footer-info span{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.payment{
+    display: flex;
+    align-items: center;
+    gap:12px;
+}
+.payment a img{
+    width: 100%;
+    height: 100%;
 }

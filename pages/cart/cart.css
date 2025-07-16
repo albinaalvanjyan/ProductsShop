@@ -1,0 +1,111 @@
+@import url("../../shared/global.css");
+
+.cart-section{
+    padding-top: 150px;
+    padding-bottom: 170px;
+}
+.cart-section h2{
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+}
+#incart-block{
+    display: flex;
+    margin-top: 24px;
+    gap: 20px;
+    
+}
+#productsincart{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    gap: 24px;
+    padding: 20px 24px;
+    flex: 1;
+}
+.product-item{
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    border-bottom:1px solid rgba(0,0,0,0.1);
+    justify-content: space-between;
+}
+.product-item .prod-img{
+    width: 124px;
+    height: 124px;
+}
+.counting-btn{
+    border-radius: 62px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    padding: 14px 20px;
+    border:none;
+}
+.title-trashicon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+.trash{
+    cursor: pointer;
+}
+.price-count{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.summary{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    gap: 24px;
+    padding: 20px 24px;
+    flex: 1;
+}
+.summary h3{
+    font-size: 24px;
+}
+.span-titles{
+    font-size: 20px;
+    color: rgba(0,0,0,0.6);
+}
+.sum{
+    font-size: 20px;
+color: black;
+    font-weight: bold;
+}
+#discount{
+    color: #FF3333;
+}
+.sum_span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#total{
+    border-top:1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+}
+.summary button {
+    padding: 15px 67.5px;
+    color: white;
+    font-size: 16px;
+    border-radius: 62px;
+    background-color: #000;
+    border: none;
+    transition: 0.3s;
+    margin-bottom: 48px;
+}
+.summary button:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
