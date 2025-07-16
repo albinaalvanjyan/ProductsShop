@@ -1,11 +1,8 @@
-@import url("../../shared/global.css");
-
-
 .first_section {
     padding-top: 103px;
     padding-bottom: 116px;
     background-color: #F2F0F1;
-    background-image: url("../../public/images/backimg.png");
+    background-image: url("/public/images/backimg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

@@ -1,12 +1,12 @@
-import { getProducts } from "../../shared/script.js";
+import { getProducts } from "/shared/script.js";
 
-fetch('../../shared/header.html')
+fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('../../shared/footer.html')
+fetch('/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -187,3 +187,7 @@ document.addEventListener("click", function (e) {
         window.location.href = `../productdetail/product.html?id=${id}`;
     }
 });
+const basketheader= document.getElementById("header-basket");
+basketheader.addEventListener("click", ()=>{
+    window.location.href = `../cart/cart.html`;
+})
