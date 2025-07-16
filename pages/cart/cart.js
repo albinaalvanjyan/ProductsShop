@@ -1,12 +1,12 @@
 import { getProducts } from "/shared/script.js";
 
-fetch('/shared/header.html')
+fetch('/public/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('/shared/footer.html')
+fetch('/public/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -38,7 +38,7 @@ function CreateCart() {
             productMap.set(el.id, { ...el });
         }
     });
-    
+
     let enriched = Array.from(productMap.values()).map(el => {
         const full = response_prod.find(p => p.id == el.id);
         return {

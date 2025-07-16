@@ -1,12 +1,12 @@
-import { getProducts } from "/shared/script.js";
+import { getProducts } from "/public/shared/script.js";
 
-fetch('/shared/header.html')
+fetch('/public/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
     });
 
-fetch('/shared/footer.html')
+fetch('/public/shared/footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer-container').innerHTML = data;
@@ -19,12 +19,12 @@ getProducts().then((products) => {
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
-let count =1;
+let count = 1;
 let imagesarray = [];
 function CreateProduct() {
     const prod = response_prod.find(el => el.id == productId);
     const productsection = document.getElementById("product-section");
-    imagesarray = prod.images||[];
+    imagesarray = prod.images || [];
     productsection.innerHTML = `<div class="product-block">
    <div class="other-images">${imagesarray.map((el, i) =>
         `<div class="other-images_items"><img src="${el}" id=${i}></div>`
@@ -65,7 +65,7 @@ function CreateProduct() {
         document.getElementById("counter").textContent = count;
         localStorage.setItem("count", count);
     });
-    const basketheader= document.getElementById("header-basket");
+    const basketheader = document.getElementById("header-basket");
     let incart = JSON.parse(localStorage.getItem("incart")) || [];
     document.getElementById("addtocart-btn").addEventListener("click", () => {
         let obj = {
@@ -76,10 +76,10 @@ function CreateProduct() {
         }
         incart.push(obj)
         localStorage.setItem("incart", JSON.stringify(incart));
-        basket_count.innerText=count;
+        basket_count.innerText = count;
     })
-    basketheader.addEventListener("click", ()=>{
-         window.location.href = `../cart/cart.html`;
+    basketheader.addEventListener("click", () => {
+        window.location.href = `../cart/cart.html`;
     })
 
 }
