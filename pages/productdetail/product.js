@@ -4,6 +4,100 @@ fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
+        const basketheader = document.getElementById("header-basket");
+        if (basketheader) {
+            basketheader.addEventListener("click", () => {
+                window.location.href = `../cart/cart.html`;
+            });
+        }
+        const mainpage_link = document.getElementById("mainpage-link");
+        mainpage_link.addEventListener("click", () => {
+            window.location.href = `../../index.html`;
+        })
+        const newproductslink=document.getElementById("newarrivals-link");
+        const topsellinglink=document.getElementById("topselling-link");
+        const shoplink = document.getElementById("shop-link");
+        const signinlink=document.getElementById("signinicon");
+
+        newproductslink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#newarrivals-section";
+        })
+        topsellinglink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#topselling-section";
+        })
+        shoplink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "../shop/shop.html";
+        })
+        signinlink.addEventListener("click", (e)=>{
+            e.preventDefault();
+            window.location.href = "../signin/signin.html";
+        })
+        const mainpage_linkmobile = document.getElementById("mainpage-link_mobile");
+        mainpage_linkmobile.addEventListener("click", () => {
+            window.location.href = `../../index.html`;
+        })
+        const basketheadermobile = document.getElementById("header-basket_mobile");
+        if (basketheadermobile) {
+            basketheadermobile.addEventListener("click", () => {
+                window.location.href = `../cart/cart.html`;
+            });
+        }
+        const newproductslink_mobile=document.getElementById("newarrivals-link_mobile");
+        const topsellinglink_mobile = document.getElementById("topselling-link_mobile");
+        const signinlink_mobile = document.getElementById("signinicon_mobile");
+        const shoplink_mobile = document.getElementById("shop-link_mobile");
+
+        shoplink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "../shop/shop.html";
+        })
+        newproductslink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#newarrivals-section";
+        })
+        topsellinglink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#topselling-section";
+        })
+        signinlink_mobile.addEventListener("click", (e)=>{
+            e.preventDefault();
+            window.location.href = "../signin/signin.html";
+        })
+        const menuinfo = document.getElementById("mobile-info");
+        const menubtn = document.getElementById("menu-icon");
+        const close = document.getElementById("close");
+        
+        menubtn.addEventListener("click", () => {
+            setTimeout(() => {
+                menuinfo.style.display = "flex";
+                menuinfo.style.left = 0;
+            }, 500);
+            menubtn.style.display = "none";
+            close.style.display = "block";
+        })
+        close.addEventListener("click", () => {
+            setTimeout(() => {
+                menuinfo.style.display = "none";
+                menuinfo.style.left = 0;
+                menubtn.style.display = "block";
+                close.style.display = "none";
+            }, 500);
+         
+        })
+        document.addEventListener("click", (e) => {
+            if (!menuinfo.contains(e.target)&&!menubtn.contains(e.target)&&!close.contains(e.target)) {
+                setTimeout(() => {
+                    menuinfo.style.display = "none";
+                    menuinfo.style.left = 0;
+                    menubtn.style.display = "block";
+                    close.style.display = "none";
+                }, 500);
+           
+            }
+          });
     });
 
 fetch('/shared/footer.html')
@@ -52,11 +146,16 @@ function CreateProduct() {
 
 
     document.getElementById("counter").textContent = count;
+    const basket_count = document.getElementById("basket-count");
+    basket_count.innerText = count;
+
 
     document.getElementById("minus").addEventListener("click", () => {
         if (count > 1) {
             count--;
             document.getElementById("counter").textContent = count;
+    basket_count.innerText = count;
+
             localStorage.setItem("count", count);
         }
     });
@@ -64,8 +163,9 @@ function CreateProduct() {
         count++;
         document.getElementById("counter").textContent = count;
         localStorage.setItem("count", count);
+    basket_count.innerText = count;
     });
-    const basketheader = document.getElementById("header-basket");
+   
     let incart = JSON.parse(localStorage.getItem("incart")) || [];
     document.getElementById("addtocart-btn").addEventListener("click", () => {
         let obj = {
@@ -76,16 +176,10 @@ function CreateProduct() {
         }
         incart.push(obj)
         localStorage.setItem("incart", JSON.stringify(incart));
-        basket_count.innerText = count;
+        
     })
-    basketheader.addEventListener("click", () => {
-        window.location.href = `../cart/cart.html`;
-    })
-
 }
-
-
-
+  
 function renderStars(rating) {
     const fullStar = '⭐';
     const emptyStar = '☆';

@@ -1,12 +1,6 @@
 export async function getProducts() {
-    const mensResponse = await fetch('https://dummyjson.com/products/category/mens-shirts');
-    const womensResponse = await fetch('https://dummyjson.com/products/category/womens-dresses');
-    
-    const mensData = await mensResponse.json();
-    const womensData = await womensResponse.json();
+  const combinedProducts=fetch("https://dummyjson.com/products?limit=194").then(res => res.json()).then(({products}) => products.filter(prod => ["mens-shirts", "womens-dresses","womens-shoes","mens-shoes","womens-bags"].includes(prod.category)))
 
-    const combinedProducts = [...mensData.products, ...womensData.products];
-  
-    return combinedProducts;
-  }
-  
+  return combinedProducts;
+}
+

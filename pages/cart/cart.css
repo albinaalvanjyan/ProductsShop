@@ -1,4 +1,4 @@
-@import url("/shared/global.css");
+
 
 .cart-section{
     padding-top: 150px;
@@ -108,4 +108,35 @@ color: black;
 }
 .summary button:hover{
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media(width<=1240px){
+    .cart-section{
+        padding-top: 50px;
+    }
+}
+@media(width<=1000px){
+    #incart-block{
+        flex-direction: column;
+    }
+}
+@media(width<=600px){
+    .title-trashicon,.price-count{
+        flex-direction: column;
+        margin-bottom: 0;
+        align-items: flex-end;
+    }
+    .title-trashicon h3,.price-count h3{
+        font-size: 14px;
+    }
+}
+@media(width<=450px){
+    .product-item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .summary button{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }

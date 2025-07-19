@@ -4,6 +4,89 @@ fetch('/shared/header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header-container').innerHTML = data;
+        const mainpage_link = document.getElementById("mainpage-link");
+        mainpage_link.addEventListener("click", () => {
+            window.location.href = `../../index.html`;
+        })
+        const newproductslink=document.getElementById("newarrivals-link");
+        const topsellinglink=document.getElementById("topselling-link");
+        const shoplink = document.getElementById("shop-link");
+        const signinlink=document.getElementById("signinicon");
+
+        newproductslink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#newarrivals-section";
+        })
+        topsellinglink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#topselling-section";
+        })
+        shoplink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "../shop/shop.html";
+        })
+        signinlink.addEventListener("click", (e)=>{
+            e.preventDefault();
+            window.location.href = "../signin/signin.html";
+        })
+        const mainpage_linkmobile = document.getElementById("mainpage-link_mobile");
+        mainpage_linkmobile.addEventListener("click", () => {
+            window.location.href = `../../index.html`;
+        })
+       
+        const newproductslink_mobile=document.getElementById("newarrivals-link_mobile");
+        const topsellinglink_mobile = document.getElementById("topselling-link_mobile");
+        const signinlink_mobile = document.getElementById("signinicon_mobile");
+        const shoplink_mobile = document.getElementById("shop-link_mobile");
+
+        newproductslink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#newarrivals-section";
+        })
+        topsellinglink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "/index.html#topselling-section";
+        })
+        signinlink_mobile.addEventListener("click", (e)=>{
+            e.preventDefault();
+            window.location.href = "../signin/signin.html";
+        })
+        shoplink_mobile.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "../shop/shop.html";
+        })
+        const menuinfo = document.getElementById("mobile-info");
+        const menubtn = document.getElementById("menu-icon");
+        const close = document.getElementById("close");
+        
+        menubtn.addEventListener("click", () => {
+            setTimeout(() => {
+                menuinfo.style.display = "flex";
+                menuinfo.style.left = 0;
+            }, 500);
+            menubtn.style.display = "none";
+            close.style.display = "block";
+        })
+        close.addEventListener("click", () => {
+            setTimeout(() => {
+                menuinfo.style.display = "none";
+                menuinfo.style.left = 0;
+                menubtn.style.display = "block";
+                close.style.display = "none";
+            }, 500);
+         
+        })
+        document.addEventListener("click", (e) => {
+            if (!menuinfo.contains(e.target)&&!menubtn.contains(e.target)&&!close.contains(e.target)) {
+                setTimeout(() => {
+                    menuinfo.style.display = "none";
+                    menuinfo.style.left = 0;
+                    menubtn.style.display = "block";
+                    close.style.display = "none";
+                }, 500);
+           
+            }
+          });
     });
 
 fetch('/shared/footer.html')
@@ -99,6 +182,9 @@ function CreateCart() {
             document.getElementById("discount").textContent = `-$${(sum - newsum).toFixed(2)}`;
             document.querySelector("#total .sum").textContent = `$${(newsum + delivery).toFixed(2)}`;
         }
+        else if (product.count == 1) {
+            deletefrombasketById(id);
+        }
     }))
     document.querySelectorAll(".plus").forEach(el => el.addEventListener("click", (event) => {
         let product = enriched.find(el => el.id == parseInt(event.target.dataset.id));
@@ -116,19 +202,28 @@ function CreateCart() {
         }
     }))
 
-    document.querySelectorAll(".trash").forEach(el => el.addEventListener("click", (event) => {
-        const id = event.target.closest(".trash").dataset.id;
-        console.log(id)
-        let deleteritemarray = JSON.parse(localStorage.getItem("incart")) || [];
-        console.log(deleteritemarray)
-        const index = deleteritemarray.findIndex(el => el.id === id);
-        console.log("Index:", index);
+    document.querySelectorAll(".trash").forEach(el => el.addEventListener("click", deletefrombasket));
+    const basket_count = document.getElementById("basket-count");
+let incart = JSON.parse(localStorage.getItem("incart")) || [];
 
-        if (index !== -1) {
-            deleteritemarray.splice(index, 1);
-            localStorage.setItem("incart", JSON.stringify(deleteritemarray));
-        }
-        CreateCart();
-    }))
+basket_count.innerText = incart.length; 
+
 }
 
+function deletefrombasket(event) {
+    const trashEl = event.target.closest(".trash");
+    if (!trashEl || !trashEl.dataset.id) return; 
+
+    const id = trashEl.dataset.id;
+    deletefrombasketById(id);
+}
+
+function deletefrombasketById(id) {
+    let deleteritemarray = JSON.parse(localStorage.getItem("incart")) || [];
+    const index = deleteritemarray.findIndex(el => el.id == id);
+    if (index !== -1) {
+        deleteritemarray.splice(index, 1);
+        localStorage.setItem("incart", JSON.stringify(deleteritemarray));
+    }
+    CreateCart();
+}

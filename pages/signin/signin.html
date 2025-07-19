@@ -10,23 +10,35 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Itim&family=Nova+Mono&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Underdog&family=Winky+Sans:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="cart.css">
-    <link rel="stylesheet" href="/shared/global.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="/shared/global.css">
 </head>
 
 <body>
-    <div id="header-container"></div>
-    <section class="container cart-section">
-        <h2>Your Cart</h2>
-        <div id="incart-block">
-        </div>
+    <section class="container signin-section">
+        <h2>Login</h2>
+        <form>
+            <label>
+                Enter your mobile number
+                <input type="tel" pattern="^\+374(10|[1-9][1-9])\d{6}$" placeholder="+374XXXXXXXX" required>
+
+            </label>
+            <label>
+                Enter your password
+                <input type="text" name="" id="">
+            </label>
+            <a href="" id="forgotpass">forgot password?</a>
+            <button id="login">Login</button>
+            <a href="">Don’t have an account? <b>Sign Up</b></a>
+            <button class="socialbtns"><i class='bx bxl-google'></i>Continue with Google</button>
+            <button class="socialbtns"><i class='bx bxl-apple' ></i>Continue with Apple</button>
+        </form>
+
     </section>
-    <div id="footer-container"></div>
-    <script type="module" src="cart.js"></script>
 </body>
 
 </html>

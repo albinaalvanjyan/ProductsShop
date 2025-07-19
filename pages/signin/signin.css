@@ -1,0 +1,102 @@
+.signin-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.signin-section h2 {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+form {
+    width: 600px;
+    margin: auto;
+    max-width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+label input {
+    padding: 20px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px
+}
+
+#login {
+    padding: 15px 67.5px;
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    border-radius: 62px;
+    background-color: #000;
+    border: none;
+    transition: 0.3s;
+    margin-bottom: 48px;
+    justify-content: center;
+    transition: 0.3s;
+}
+#login:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#forgotpass {
+    align-self: end;
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.socialbtns {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px 67.5px;
+    border-radius: 62px;
+    width: 100%;
+    justify-content: center;
+}
+
+.bxl-google,
+.bxl-apple {
+    font-size: 20px;
+}
+
+@media(width<=450px){
+    .socialbtns{
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14px;
+    }
+    a{
+        font-size: 14px;
+    }
+}

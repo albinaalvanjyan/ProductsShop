@@ -1,5 +1,5 @@
 .first_section {
-    padding-top: 103px;
+    padding-top: 133px;
     padding-bottom: 116px;
     background-color: #F2F0F1;
     background-image: url("/images/backimg.png");
@@ -65,6 +65,7 @@
     justify-content: space-between;
     gap: 10px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .brands h2 {
@@ -198,4 +199,19 @@
     font-size: 16px;
     line-height: 22px;
     color: rgba(0, 0, 0, 0.6);
+}
+
+@media(width<=700px){
+    .first_section h1{
+        font-size: 40px;
+    }
+    .data-counts{
+        gap: 10px;
+    }
+    .data-counts h2{
+        font-size: 16px;
+    }
+    .data-counts span{
+        font-size: 14px;
+    }
 }
