@@ -170,7 +170,7 @@
 
 #customers-slider {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     position: relative;
     right: 0;
@@ -178,7 +178,7 @@
 }
 
 .review {
-    min-width: 400px !important;
+    flex: 0 0 calc((100% - 20px) / 3);
     padding: 28px 32px 50px 32px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -200,7 +200,9 @@
     line-height: 22px;
     color: rgba(0, 0, 0, 0.6);
 }
-
+@media(width<=1240px){
+    
+}
 @media(width<=700px){
     .first_section h1{
         font-size: 40px;

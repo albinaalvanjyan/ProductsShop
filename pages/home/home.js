@@ -70,33 +70,16 @@ fetch('/shared/header.html')
         const close = document.getElementById("close");
         
         menubtn.addEventListener("click", () => {
-            setTimeout(() => {
-                menuinfo.style.display = "flex";
-                menuinfo.style.left = 0;
-            }, 500);
+            menuinfo.style.transform = "translateX(0)";
             menubtn.style.display = "none";
             close.style.display = "block";
         })
         close.addEventListener("click", () => {
-            setTimeout(() => {
-                menuinfo.style.display = "none";
-                menuinfo.style.left = 0;
-                menubtn.style.display = "block";
+            menubtn.style.display = "block";
                 close.style.display = "none";
-            }, 500);
-         
+            menuinfo.style.transform = "translateX(-100%)";
         })
-        document.addEventListener("click", (e) => {
-            if (!menuinfo.contains(e.target)&&!menubtn.contains(e.target)&&!close.contains(e.target)) {
-                setTimeout(() => {
-                    menuinfo.style.display = "none";
-                    menuinfo.style.left = 0;
-                    menubtn.style.display = "block";
-                    close.style.display = "none";
-                }, 500);
-           
-            }
-          });
+
           const shopnowbtn=document.getElementById("shopnowbtn");
           shopnowbtn.addEventListener("click", (e)=>{
             e.preventDefault();
@@ -262,7 +245,7 @@ leftarrow.addEventListener("click", SliderLeft);
 rightarrow.addEventListener("click", SliderRigth);
 
 let position = 0;
-let slideWidth = 420;
+let slideWidth=400;
 let visibleslides = 3;
 function SliderLeft() {
     const maxScroll = (reviewsratings.length - visibleslides) * slideWidth;
